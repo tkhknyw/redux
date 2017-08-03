@@ -46,7 +46,7 @@ class ApplicationApi {
     });
   }
 
-  static saveCourse(application) {
+  static saveApplication(application) {
     application = Object.assign({}, application); // to avoid manipulating object passed in.
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -73,7 +73,7 @@ class ApplicationApi {
     });
   }
 
-  static deleteCourse(applicationId) {
+  static deleteApplication(applicationId) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const indexOfCourseToDelete = applications.findIndex(application => {

@@ -1,6 +1,7 @@
 import * as types from '../constants/actionTypes';
+import initialState from '../constants/initialState'
 
-export default function applicationReducer(state = [], action) {
+export default function applicationReducer(state = initialState.applications, action) {
   switch (action.type) {
     case types.CREATE_APPLICATION:
       return [...state,

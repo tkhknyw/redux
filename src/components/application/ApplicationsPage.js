@@ -35,4 +35,5 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(applicationActions, dispatch)
   };
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationPage);

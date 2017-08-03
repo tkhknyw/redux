@@ -6,7 +6,6 @@ const ApplicationList = ({applications}) => {
     <table className = "table">
       <thead>
         <tr>
-          <th>Id</th>
           <th>Name</th>
           <th>Pipeline</th>
         </tr>
