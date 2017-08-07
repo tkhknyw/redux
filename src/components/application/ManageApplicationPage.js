@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as applicationActions from '../../actions/applicationActions';
+import * as environmentActions from '../../actions/environmentActions';
 import ApplicationForm from './ApplicationForm';
 
 class ManageApplicationPage extends React.Component {
@@ -43,8 +44,10 @@ class ManageApplicationPage extends React.Component {
 
         <ApplicationForm
           application = {this.state.application}
-          allEnvironments = {[]}
+          allEnvironments = {this.props.environments}
           errors = {this.state.errors}
+          onChange = {this.onNameChange}
+          onSave = {this.onClickSave}
         />
       </div>
     );
@@ -54,20 +57,24 @@ class ManageApplicationPage extends React.Component {
 ManageApplicationPage.propTypes = {
   actions: PropTypes.object.isRequired,
   applications: PropTypes.array.isRequired,
-  application: PropTypes.object.isRequired
+  application: PropTypes.object.isRequired,
+  environments: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
   let application = {id: '', name: '', jenkinsUrl: ''};
+
   return {
     application: application,
-    applications : state.applications
+    applications : state.applications,
+    environments: state.environments
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(applicationActions, dispatch)
+    actions: bindActionCreators(applicationActions, dispatch),
+    environments: bindActionCreators(environmentActions, dispatch)
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ManageApplicationPage);

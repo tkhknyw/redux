@@ -1,4 +1,4 @@
-import * as types from '../constants/actionTypes';
+import * as types from './actionTypes';
 import applicationApi from '../api/mockApplicationApi';
 
 export function createApplication(application) {

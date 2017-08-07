@@ -1,5 +1,5 @@
 import EnvironmentApi from '../api/mockEnvironmentApi';
-import * as types from '../constants/actionTypes';
+import * as types from './actionTypes';
 
 export function loadEnvironmentsSuccess(environments) {
   return {type: types.LOAD_ENVIRONMENTS_SUCCESS, environments};

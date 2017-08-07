@@ -18,11 +18,11 @@ const ApplicationForm = (application, allEnvironments, onChange, onSave, loading
       <SelectInput
         name="environment"
         label="Environment"
-        options={allEnvironments}
+        onChange={onChange}
         defaultOption="Select Envrionment"
         value={application.environment}
         error={errors}
-        onChange={onChange}
+        options={[{value:"sit", text:"SIT"},{name:"uat", text:"UAT"}]}
       />
 
       <input
@@ -37,7 +37,7 @@ const ApplicationForm = (application, allEnvironments, onChange, onSave, loading
 
 ApplicationForm.propTypes = {
   application: PropTypes.object.isRequired,
-  allEnvironments:PropTypes.arrayOf(PropTypes.object),
+  allEnvironments:PropTypes.array.isRequired,
   onSave: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   loading: PropTypes.bool,
