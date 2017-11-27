@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as applicationActions from '../../actions/applicationActions';
 import * as environmentActions from '../../actions/environmentActions';
 import ApplicationForm from './ApplicationForm';
+import DeployForm from './DeployForm';
 
 class ManageApplicationPage extends React.Component {
   constructor(props, context) {
@@ -49,6 +50,14 @@ class ManageApplicationPage extends React.Component {
           onChange = {this.onNameChange}
           onSave = {this.onClickSave}
         />
+
+        <DeployForm
+          applications = {this.state.applications}
+          errors = {this.state.error}
+          onChange = {this.onDeployFormChange}
+          onDeploy = {this.onClickDeploy}
+        />
+
       </div>
     );
   }
